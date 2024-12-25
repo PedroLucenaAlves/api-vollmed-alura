@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"nome\": \"Pedrinho mete bala\",\r\n\"email\": \"pedrinho.metebala@voll.med\",\r\n\"telefone\": \"(21) 99764389\",\r\n\"cpf\": \"898.765.123-85\",\r\n\"endereco\": {\r\n    \"logradouro\": \"Terere\",\r\n    \"bairro\": \"varzea\",\r\n    \"cep\": \"12345689\",\r\n    \"cidade\": \"Rio de Janeiro\",\r\n    \"uf\": \"RJ\",\r\n    \"numero\": \"605\",\r\n    \"complemento\": \"apt 607\"\r\n    }\r\n}",
+					"raw": "{\r\n\"nome\": \"Pedrinho\",\r\n\"email\": \"pedrinho.@voll.med\",\r\n\"telefone\": \"(21) 99764389\",\r\n\"cpf\": \"898.765.123-85\",\r\n\"endereco\": {\r\n    \"logradouro\": \"Terere\",\r\n    \"bairro\": \"varzea\",\r\n    \"cep\": \"12345689\",\r\n    \"cidade\": \"Rio de Janeiro\",\r\n    \"uf\": \"RJ\",\r\n    \"numero\": \"605\",\r\n    \"complemento\": \"apt 607\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
