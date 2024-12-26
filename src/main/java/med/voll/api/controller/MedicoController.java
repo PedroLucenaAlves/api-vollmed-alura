@@ -28,7 +28,6 @@ public class MedicoController {
 
     private DadosEndereco endereco;
 
-
     @PostMapping
     @Transactional //metodo de inscrita exige uma transacao ativa com o banco           classe do Spring que encapsula o ip do nosso servidor (no caso o localhost)
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastrosMedicosDTO dados, UriComponentsBuilder uriComponentsBuilder) { //valid ira validar o meu objeto "dados" com as anotacoes declaradas nas classes dto
