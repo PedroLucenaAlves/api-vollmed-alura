@@ -77,10 +77,4 @@ public class MedicoController {
 
     }
 
-
-    //    @PostMapping //req do tipo post ao chamar nosso endpoint
-//    public void cadastrar(@RequestBody DadosCadastrosMedicos dadosCadastrosMedicos){ //informando ao spring que o parametro esta vindo do corpo da req para nao estourar um null
-//        System.out.println(dadosCadastrosMedicos);
-//    }
-
 }
