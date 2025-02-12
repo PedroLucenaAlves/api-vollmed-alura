@@ -1,4 +1,4 @@
-package med.voll.api.endereco;
+package med.voll.api.domain.endereco;
 
 
 import jakarta.validation.constraints.NotBlank;
@@ -12,7 +12,7 @@ public record DadosEndereco(
         @NotBlank
         String bairro,
 
-        @NotBlank()
+        @NotBlank
         @Pattern(regexp = "\\d{8}", message = "O campo CEP deve conter exatamente 8 dígitos")
         String cep,
 
@@ -24,6 +24,5 @@ public record DadosEndereco(
 
         String complemento,
 
-        String numero) {
-
-}
+        String numero)
+{}

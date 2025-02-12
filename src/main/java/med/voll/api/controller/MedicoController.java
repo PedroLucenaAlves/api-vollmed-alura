@@ -5,9 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import med.voll.api.controller.dto.DadosAtualizacaoMedicoDTO;
 import med.voll.api.controller.dto.DadosCadastrosMedicosDTO;
 import med.voll.api.controller.dto.DadosListagemMedicosDTO;
-import med.voll.api.endereco.DadosEndereco;
+import med.voll.api.domain.endereco.DadosEndereco;
 import med.voll.api.controller.dto.DadosDetalhamentoMedicoDTO;
-import med.voll.api.medico.Medico;
+import med.voll.api.domain.medico.Medico;
 import med.voll.api.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -51,6 +51,13 @@ public class MedicoController {
 
         var page = medicoRepository.findAllByAtivoTrue(paginacao).map(DadosListagemMedicosDTO::new); //exibe apenas os medicos com status ativo = 1
         return ResponseEntity.ok(page); //devolvendo codigo 200 "ok" passando o objeto "page" junto na resposta
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalharMedicos(@PathVariable Long id){
+
+        var idMedico = medicoRepository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoMedicoDTO(idMedico));
     }
 
     @PutMapping

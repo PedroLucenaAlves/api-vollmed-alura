@@ -5,8 +5,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import med.voll.api.endereco.DadosEndereco;
-import med.voll.api.medico.Especialidade;
+import med.voll.api.domain.endereco.DadosEndereco;
+import med.voll.api.domain.medico.Especialidade;
 
 /**
  * Classes records sao uma forma de simplificar o envio de alguns atributos evitando get e set e etc.
