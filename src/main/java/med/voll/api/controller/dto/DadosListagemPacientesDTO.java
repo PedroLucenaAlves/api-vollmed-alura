@@ -1,9 +1,6 @@
 package med.voll.api.controller.dto;
 
-import med.voll.api.endereco.Endereco;
-import med.voll.api.medico.Especialidade;
-import med.voll.api.medico.Medico;
-import med.voll.api.pacientes.Pacientes;
+import med.voll.api.domain.pacientes.Pacientes;
 
 public record DadosListagemPacientesDTO(
 

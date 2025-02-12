@@ -1,46 +1,51 @@
-package med.voll.api.pacientes;
+package med.voll.api.domain.medico;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.controller.dto.DadosAtualizacaoPacienteDTO;
-import med.voll.api.endereco.Endereco;
-import med.voll.api.controller.dto.DadosCadastroPacienteDTO;
+import med.voll.api.controller.dto.DadosAtualizacaoMedicoDTO;
+import med.voll.api.controller.dto.DadosCadastrosMedicosDTO;
+import med.voll.api.domain.endereco.Endereco;
 
+@Table(name = "medicos")
+@Entity(name = "Medico")
 @Getter
-@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "Paciente")
-@Table(name = "pacientes")
-public class Pacientes {
+@EqualsAndHashCode(of = "id") //hashcode em cima do id
+public class Medico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
     private String email;
-    private String cpf;
+
     private String telefone;
+
+    private String crm;
+
     private Boolean ativo;
 
-    @Embedded
+    @Enumerated(EnumType.STRING)
+    private Especialidade especialidade;
+
+    @Embedded //Indica que essa classe pode ser incorporada em outra entidade (analisar classe endereco)
     private Endereco endereco;
 
-    public Pacientes(DadosCadastroPacienteDTO dados) {
+    public Medico(DadosCadastrosMedicosDTO dados) {
         this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.telefone = dados.telefone();
-        this.cpf = dados.cpf();
+        this.crm = dados.crm();
+        this.especialidade = dados.especialidade();
         this.endereco = new Endereco(dados.endereco());
     }
 
-    public void atualizarInformacoes(@Valid DadosAtualizacaoPacienteDTO dados) {
+    public void atualizarInformacoes(DadosAtualizacaoMedicoDTO dados) {
 
         //atribuindo um if para o spring nao atribuir um valor null ao atualizar dados que sao opcionais no spring
         if(dados.nome() != null) {
@@ -57,8 +62,7 @@ public class Pacientes {
 
     }
 
-    public void inativar(){
+    public void excluir() {
         this.ativo = false;
     }
-
 }
